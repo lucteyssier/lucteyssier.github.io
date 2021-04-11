@@ -1,0 +1,10 @@
+url: "https://lucteyssier.com"
+baseurl: ""
+title: "Luc Teyssier"
+destination: docs
+sass:
+  style: compressed
+include:
+  - CNAME
+keep_files:
+  - CNAME
