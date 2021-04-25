@@ -1,6 +1,112 @@
 @charset 'utf-8';
-@import "abstracts/variables";
+@import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Reenie+Beanie&display=swap');
 @import "vendors/modularscale/modularscale";
 @import "base/reset";
-@import "base/typography";
-@import "layout/layout";
+
+$modularscale: (
+  base: 1em,
+  ratio: 1.2
+);
+
+$width: 70ch;
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0 20px;
+  height: 100vh;
+  background-color: #f6f2ef;
+
+  > header {
+    flex-grow: 0;
+    padding: 30px;
+    text-align: center;
+
+    h1 {
+      font-size: ms(5);
+      font-family: 'Reenie Beanie', serif;
+      letter-spacing: -.05em;
+    }
+  }
+
+  > nav {
+    margin: 0 auto;
+    max-width: $width;
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      li {
+        margin-right: 10px;
+
+        a, a:visited {
+          color: rgb(29, 45, 53);
+          text-decoration: none;
+          font-family: 'Reenie Beanie', serif;
+          font-size: 2em;
+        }
+
+        a:hover {
+          font-weight: bold;
+          // text-decoration: underline;
+        }
+      }
+    }
+
+  }
+
+  > main {
+    flex-grow: 1;
+    width: 100%;
+
+    article {
+
+      header {
+        margin: 0 0 30px 0;
+
+        h1 {
+          font-size: ms(5);
+          font-weight: 900;
+          font-family: 'Chelsea Market', serif;
+          text-align: center;
+          text-transform: uppercase;
+        }
+      }
+
+      p {
+        font-size: ms(-1);
+        font-family: 'Libre Baskerville', serif;
+        text-indent: 2ch;
+        color: rgb(29, 45, 53);
+        line-height: 1.8em;
+        text-align: justify;
+
+        &:first-of-type {
+          text-indent: 0ch;
+
+          &::first-letter {
+            float: left;
+            margin: 5px 10px 0 0;
+            font-size: ms(9);
+            line-height: 1em;
+            text-transform: uppercase;
+            margin-bottom: -1rem;
+          }
+        }
+      }
+    }
+  }
+
+  > footer {
+    flex-grow: 0;
+    font-size: ms(-1);
+    padding: 50px 5px;
+    text-align: center;
+  }
+}
