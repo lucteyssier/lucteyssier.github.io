@@ -2,13 +2,15 @@ domain: lucteyssier.com
 url: "https://lucteyssier.com"
 baseurl: ""
 
+theme: hitchens-theme
+
 source: _site
 destination: docs
 disable_disk_cache: true
 
 plugins:
   - jekyll-feed
-  - jekyll-postcss
+  - jekyll-paginate
   - jekyll-seo-tag
   - jekyll-sitemap
 
@@ -23,4 +25,9 @@ keep_files:
 
 # SEO
 title: "Luc Teyssier"
-description: Writer
+subtitle: Writer
+description: "Luc Tessier is a writer."
+
+paginate: 5
+
+hide_credits: true

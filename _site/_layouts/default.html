@@ -1,16 +1,56 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
+<html lang="en">
+
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <meta charset="utf-8">
-    <title>{{ site.title }} {% unless page.title == "Home" %} | {{ page.title }} {% endunless %}</title>
-    <link rel="stylesheet" href="{{ "/assets/css/styles.css" | relative_url }}">
-    {% feed_meta %}
-    {% seo title=false %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{{ site.title }}{% if page.title and page.title != "" %} &#124; {{ page.title }}{% endif %}</title>
+
+    {% if site.description %}
+      <meta name="description" content="{{ site.description }}">
+    {% endif %}
+
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | absolute_url }}?{{ site.time | date: '%s%N' }}">
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | absolute_url }}?{{ site.time | date: '%s%N' }}">
+    <link rel="apple-touch-icon" href="{{ site.icon }}">
+
+    {%- if jekyll.environment == 'production' and site.google_analytics -%}
+      {%- include google-analytics.html -%}
+    {%- endif -%}
+
   </head>
-  <body class="text-white bg-slate-800">
-    <div class="flex flex-col p-5">
-      {{ content }}
-    </div>
+
+  <body>
+
+    {% if page.layout == 'home' %}
+      <a href="#main" class="skip-navigation">
+        Skip to list of posts
+      </a>
+    {% else %}
+      <a href="#main" class="skip-navigation">
+        Skip to content
+      </a>
+    {% endif %}
+
+    {{ content }}
+
+    {% unless site.hide_search %}
+      {% include search.html %}
+    {% endunless %}
+
+    {% include menu.html %}
+
+    {% unless site.hide_credits %}
+      <aside class="site-credits">
+        <p>
+          <small><a href="https://github.com/patdryburgh/hitchens">Hitchens Theme</a> powered by <a href="http://jekyllrb.com">Jekyll</a></small>
+        </p>
+      </aside>
+    {% endunless %}
+
   </body>
+
 </html>
