@@ -1,6 +1,6 @@
 domain: lucteyssier.com
 url: "https://lucteyssier.com"
-baseurl: ""
+# baseurl: ""
 
 theme: hitchens-theme
 
